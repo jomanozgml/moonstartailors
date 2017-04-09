@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head language="en">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Jacket Design</title>
+	<link href="Jacket_Design.css" rel="stylesheet">
+	<link rel='stylesheet' href='spectrum.css' />
+	<script src="jquery-3.2.0.js"></script>
+	<script src='spectrum.js'></script>
+</head>
+<body>
+	<div class="billMainDiv" id="mainBillDiv">
+		<h2> MOON STAR TAILORS </h2>
+		<canvas class="jacketCanvas" id="myCanvas">
+			Your browser does not support the canvas element.
+		</canvas>
+		<div class="colorDiv" id="colorSelector">
+			<div class="innerColor">
+				<input type="text" class="colorPicker" id="upperColor" />
+			</div>
+			<div class="innerColor">
+				<input type="text" class="colorPicker" id="lowerColor" />
+			</div>
+		</div>
+	</div>
+</body>
+<script>
+	$(document).ready(function(){
+		var zipperColor = "red";
+		$(".colorPicker").spectrum({
+			flat: true,
+			showInput: true,
+			showPalette: true,
+			showPaletteOnly: true,
+			className: "colorSelect",
+			preferredFormat: "name",
+			move: function (color) {
+				if($(this).attr('id') == "upperColor"){
+					fillJacket(color);
+					fillHands(zipperColor);
+					fillZipper(zipperColor);
+					displayUpColor(color);
+				}
+				else {
+					zipperColor = color;
+					fillHands(color);
+					fillZipper(color);
+					displayDownColor(color);
+				}
+			},
+			palette: [
+				"Black", "White", "Gray", "LightGray", "Aquamarine", "Blue", "BlueViolet", "DarkBlue", "LightBlue", "LightSteelBlue", "Navy", "RoyalBlue", "SkyBlue", "Teal", "Turquoise",
+				"Chartreuse", "DarkGreen", "DarkOliveGreen", "Green", "LightGreen", "LightSeaGreen", "Lime", "LimeGreen", "Olive",  "SeaGreen", "SpringGreen", "DarkKhaki ", "Khaki",
+				"DarkViolet", "Indigo", "MediumPurple", "Orchid", "PaleVioletRed ", "Purple", "Plum",
+				"Brown", "Chocolate", "SaddleBrown", "Sienna", "Crimson", "DarkOrange", "DarkRed", "DeepPink", "HotPink", "IndianRed", "LightPink", "MediumVioletRed", "Red", "Salmon", "Tomato",
+				"DarkGoldenRod", "Gold", "GoldenRod", "GreenYellow", "Yellow", "YellowGreen",
+				"BurlyWood", "Wheat", "Silver", "Tan",
+			]
+		});
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		var b = document.getElementById("mainBillDiv").offsetWidth;
+		if(window.innerWidth < window.innerHeight) {
+			canvas.width = b - 14;
+			canvas.height = window.innerHeight * 0.52;
+			w = canvas.width + 2 + 'px';
+			h = window.innerHeight * 0.4 + 'px';
+			document.getElementById("colorSelector").style.width = w;
+			document.getElementById("colorSelector").style.height = h;
+			document.getElementById("colorSelector").style.marginLeft = '0px';	
+			document.getElementById("colorSelector").style.marginTop = '-5px';	
+		}
+		else {
+			canvas.width = b * 0.56;
+			canvas.height = window.innerHeight/1.18;
+			w = b - canvas.width - 16 + 'px';
+			h = canvas.height + 2 + 'px';
+			document.getElementById("colorSelector").style.width = w;
+			document.getElementById("colorSelector").style.height = h;
+		}
+				
+		if(window.innerWidth <= 360) {
+			ctx.scale(0.7,0.7);
+			$(".colorSelect .sp-palette").css("max-width", "110px");
+		}
+		else if(window.innerWidth <= 480) {
+			ctx.scale(0.8,0.8);
+			$(".colorSelect .sp-palette").css("max-width", "140px");
+		}
+		else if(window.innerWidth <= 680) {
+			if(window.innerWidth < window.innerHeight) {
+				ctx.scale(0.9,0.9);
+				$(".colorSelect .sp-palette").css("max-width", "200px");
+			}
+			else {
+				ctx.scale(0.7,0.7);
+				$(".colorSelect .sp-palette").css("max-width", "260px");
+			}
+		}
+		else if(window.innerWidth <= 768) {
+			if(window.innerWidth < window.innerHeight) {
+				ctx.scale(1.3,1.3);
+				$(".colorSelect .sp-palette").css("max-width", "320px");
+			}
+			else {
+				ctx.scale(0.9,0.9);
+				$(".colorSelect .sp-palette").css("max-width", "300px");
+			}
+		}
+		else if(window.innerWidth <= 1024) {
+			ctx.scale(1.3,1.3);
+			$(".colorSelect .sp-palette").css("max-width", "300px");
+		}
+		else {
+			ctx.scale(1.4,1.4);
+			$(".colorSelect .sp-palette").css("max-width", "410px");
+		}
+		fillJacket("black");
+		fillHands("red");
+		fillZipper("red");
+		function fillJacket(colorName){
+			ctx.beginPath();
+			ctx.shadowBlur = 7;
+			ctx.shadowOffsetX = 10;
+			ctx.shadowOffsetY = 8;
+			ctx.shadowColor = "#a6a6a6";
+			ctx.moveTo(170,50);
+			ctx.lineTo(170,70);
+			ctx.lineTo(100,100);
+			ctx.lineTo(70,120);
+			ctx.lineTo(130,160);
+			ctx.lineTo(300,160);
+			ctx.lineTo(360,120);
+			ctx.lineTo(330,100);
+			ctx.lineTo(260,70);
+			ctx.lineTo(260,50);
+			ctx.lineTo(170,50);
+			ctx.closePath();
+			ctx.fillStyle = colorName;
+			ctx.fill();
+		}
+		function fillHands(coloredName){
+			ctx.beginPath(); 
+			ctx.moveTo(70,120);
+			ctx.lineTo(30,200);
+			ctx.lineTo(25,350);
+			ctx.lineTo(75,350);
+			ctx.lineTo(100,220);
+			ctx.lineTo(130,160);
+			
+			ctx.lineTo(130,160);
+			ctx.lineTo(130,350);
+			ctx.lineTo(300,350);
+			ctx.lineTo(300,160);
+			
+			ctx.lineTo(330,220);
+			ctx.lineTo(355,350);
+			ctx.lineTo(405,350);
+			ctx.lineTo(400,200);
+			ctx.lineTo(360,120);
+            ctx.lineTo(300,160);
+            ctx.lineTo(130,160);
+			ctx.lineTo(70,120);
+			
+			ctx.closePath();
+			ctx.fillStyle = coloredName;
+			ctx.fill();
+		}
+		function fillZipper(colorZipper){
+			ctx.beginPath();
+			ctx.shadowColor = "transparent";
+			ctx.moveTo(215,50);
+			ctx.lineTo(215,350);
+			ctx.lineWidth = 5;
+			ctx.strokeStyle = colorZipper;
+			ctx.stroke();
+			ctx.closePath();
+		}
+		function displayUpColor(color){
+			ctx.beginPath();
+			ctx.moveTo(278,50);
+			ctx.lineTo(278,65);
+			ctx.lineTo(400,65);
+			ctx.lineTo(400,50);
+			ctx.closePath();
+			ctx.fillStyle = "white";
+			ctx.fill();
+			ctx.font = "12px Verdana";
+			ctx.fillStyle = "black";
+			ctx.fillText(color,280,60);
+		}
+		function displayDownColor(color){
+			ctx.beginPath();
+			ctx.moveTo(278,365);
+			ctx.lineTo(278,380);
+			ctx.lineTo(400,380);
+			ctx.lineTo(400,365);
+			ctx.closePath();
+			ctx.fillStyle = "white";
+			ctx.fill();
+			ctx.font = "12px Verdana";
+			ctx.fillStyle = "black";
+			ctx.fillText(color,280,375);
+		}
+		
+	});
+</script>
+</html>
