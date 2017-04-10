@@ -46,18 +46,18 @@
 				"BurlyWood", "Wheat", "Silver", "Tan",
 			]
 		});
-		$(".colorPicker").on('move.spectrum', function(e, color) {
+		$(".colorPicker").on('move.spectrum', function(e, tinycolor) {
 			if($(this).attr('id') == "upperColor"){
-					fillJacket(color);
+					fillJacket(tinycolor);
 					fillHands(zipperColor);
 					fillZipper(zipperColor);
-					displayUpColor(color);
+					displayUpColor(tinycolor);
 				}
 				else {
-					zipperColor = color;
-					fillHands(color);
-					fillZipper(color);
-					displayDownColor(color);
+					zipperColor = tinycolor;
+					fillHands(tinycolor);
+					fillZipper(tinycolor);
+					displayDownColor(tinycolor);
 				}
 		});
 		var canvas = document.getElementById("myCanvas");
