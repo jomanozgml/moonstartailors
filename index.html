@@ -36,7 +36,7 @@
 			showPaletteOnly: true,
 			className: "colorSelect",
 			preferredFormat: "name",
-			move: function (color) {
+			<!-- move: function (color) {
 				if($(this).attr('id') == "upperColor"){
 					fillJacket(color);
 					fillHands(zipperColor);
@@ -49,7 +49,7 @@
 					fillZipper(color);
 					displayDownColor(color);
 				}
-			},
+			},-->
 			palette: [
 				"Black", "White", "Gray", "LightGray", "Aquamarine", "Blue", "BlueViolet", "DarkBlue", "LightBlue", "LightSteelBlue", "Navy", "RoyalBlue", "SkyBlue", "Teal", "Turquoise",
 				"Chartreuse", "DarkGreen", "DarkOliveGreen", "Green", "LightGreen", "LightSeaGreen", "Lime", "LimeGreen", "Olive",  "SeaGreen", "SpringGreen", "DarkKhaki ", "Khaki",
@@ -58,6 +58,20 @@
 				"DarkGoldenRod", "Gold", "GoldenRod", "GreenYellow", "Yellow", "YellowGreen",
 				"BurlyWood", "Wheat", "Silver", "Tan",
 			]
+		});
+		$(".colorPicker").on('move.spectrum', function(e, color) {
+			if($(this).attr('id') == "upperColor"){
+					fillJacket(color);
+					fillHands(zipperColor);
+					fillZipper(zipperColor);
+					displayUpColor(color);
+				}
+				else {
+					zipperColor = color;
+					fillHands(color);
+					fillZipper(color);
+					displayDownColor(color);
+				}
 		});
 		var canvas = document.getElementById("myCanvas");
 		var ctx = canvas.getContext("2d");
