@@ -37,21 +37,26 @@
 		for (var i=0; i<arrLength; i++) {
 			$(".innerColor").append("<div tabindex='0' class='colorBox'></div>");
 			b[0].children[i].style.backgroundColor = arrayOfColor[i];
+			b[0].children[i].title = arrayOfColor[i];
 			b[1].children[i].style.backgroundColor = arrayOfColor[i];
+			b[1].children[i].title = arrayOfColor[i];
 		}
 		$('.innerColor > div').on("click touchstart", function(){
 			var jkcolor = this.style.backgroundColor;
+			var jkcolorName = this.title;
+			$(this).parent().children().css("border","1px solid transparent");
+			this.style.border = "2px solid blue";
 			if($(this).parent().attr('id') == "topColor"){
 					fillJacket(jkcolor);
 					fillHands(zipperColor);
 					fillZipper(zipperColor);
-					displayUpColor(jkcolor);
+					displayUpColor(jkcolorName);
 				}
 				else {
 					zipperColor = jkcolor;
 					fillHands(jkcolor);
 					fillZipper(jkcolor);
-					displayDownColor(jkcolor);
+					displayDownColor(jkcolorName);
 				}
 		});
 		var canvas = document.getElementById("myCanvas");
