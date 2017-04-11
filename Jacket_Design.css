@@ -4,29 +4,29 @@
 /* For Small Mobile Screen */
 @media screen and (max-width: 640px){
 	.colorBox {
-		width: 14px;
-		height: 14px;
+		width: 16px;
+		height: 16px;
 	}
 }
 /* For Mobile Screen */
 @media screen and (max-width: 767px) and (min-width: 641px){
 	.colorBox {
-		width: 16px;
-		height: 16px;
+		width: 20px;
+		height: 20px;
 	}
 }
 /* For Ipad/Tab Screen */
 @media screen and (max-width: 1024px) and (min-width: 768px){
 	.colorBox {
-		width: 20px;
-		height: 20px;
+		width: 25px;
+		height: 25px;
 	}
 }
 /* For Desktop Screen */
 @media screen and (min-width: 1025px){
 	.colorBox {
-		width: 25px;
-		height: 25px;
+		width: 30px;
+		height: 30px;
 	}
 }
 
@@ -74,11 +74,7 @@
 	float: left;
 	position: relative;
 	padding: 0px;
-	margin: 0.5%;
-	border: 1px solid transparent;
+	margin: 0.6%;
+	border: 2px solid transparent;
 	cursor: pointer;
-}
-.colorBox:focus {
-	border: 1px solid blue;
-	outline: 1px solid blue;
 }
