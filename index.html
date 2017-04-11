@@ -35,7 +35,7 @@
 		var arrLength = arrayOfColor.length;
 		var b = document.getElementsByClassName("innerColor");
 		for (var i=0; i<arrLength; i++) {
-			$(".innerColor").append("<div class='colorBox'></div>");
+			$(".innerColor").append("<div tabindex='0' class='colorBox'></div>");
 			b[0].children[i].style.backgroundColor = arrayOfColor[i];
 			b[1].children[i].style.backgroundColor = arrayOfColor[i];
 		}
