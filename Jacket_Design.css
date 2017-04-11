@@ -78,3 +78,7 @@
 	border: 1px solid transparent;
 	cursor: pointer;
 }
+.colorBox:focus {
+	border: 1px solid blue;
+	outline: 1px solid blue;
+}
