@@ -74,7 +74,40 @@
 	float: left;
 	position: relative;
 	padding: 0px;
-	margin: 0.6%;
+	margin: 0.8%;
 	border: 2px solid transparent;
 	cursor: pointer;
+}
+.divCanvas {
+	display: inline-block;
+	width: auto;
+	height: auto;
+	position: relative;
+}
+.canvasBtn {
+	position: absolute;
+	background: lightblue;
+	color: white;
+	border: none;
+	padding: 5px;
+	box-shadow: 2px 2px 2px gray;
+	transition: all 0.25s;
+	cursor: pointer;
+	z-index: 1;
+}
+.canvasBtn:hover {
+	box-shadow: 4px 4px 2px gray;
+}
+.canvasBtn:active {
+	color: lightblue;
+	background-color: white;
+	box-shadow: 1px 1px 2px gray;
+}
+.leftButton {
+	top: 2%;
+	left: 2%;
+}
+.rightButton {
+	top: 2%;
+	right: 2%;
 }
