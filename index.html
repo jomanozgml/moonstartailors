@@ -11,9 +11,13 @@
 <body>
 	<div class="billMainDiv" id="mainBillDiv">
 		<h2> MOON STAR TAILORS </h2>
-		<canvas class="jacketCanvas" id="myCanvas">
-			Your browser does not support the canvas element.
-		</canvas>
+		<div class="divCanvas">
+			<button class="canvasBtn leftButton"> Previous </button>
+			<button class="canvasBtn rightButton"> Next </button>
+			<canvas class="jacketCanvas" id="myCanvas">
+				Your browser does not support the canvas element.
+			</canvas>
+		</div>
 		<div class="colorDiv" id="colorSelector">
 			<div class="innerColor" id="topColor">
 			</div>
@@ -23,7 +27,27 @@
 	</div>
 <script>
 	$(document).ready(function(){
-		var zipperColor = "red";
+		var colorName = "black";
+		var coloredName = "red";
+		var jcount = 0;
+		$(".rightButton").on("click touchstart", function(){
+			jcount++;
+			if(jcount == 3){
+				jcount = 0;
+			}
+			fillJacket(colorName,jcount);
+			fillHands(coloredName,jcount);
+			fillZipper(coloredName);
+		});
+		$(".leftButton").on("click touchstart", function(){
+			jcount--;
+			if(jcount == -1){
+				jcount = 2;
+			}
+			fillJacket(colorName,jcount);
+			fillHands(coloredName,jcount);
+			fillZipper(coloredName);
+		});
 		var arrayOfColor = [
 				"Black", "White", "Gray", "LightGray", "Aquamarine", "Blue", "BlueViolet", "DarkBlue", "LightBlue", "LightSteelBlue", "Navy", "RoyalBlue", "SkyBlue", "Teal", "Turquoise",
 				"Chartreuse", "DarkGreen", "DarkOliveGreen", "Green", "LightGreen", "LightSeaGreen", "Lime", "LimeGreen", "Olive",  "SeaGreen", "SpringGreen", "DarkKhaki ", "Khaki",
@@ -47,14 +71,15 @@
 			$(this).parent().children().css("border","1px solid transparent");
 			this.style.border = "2px solid blue";
 			if($(this).parent().attr('id') == "topColor"){
-					fillJacket(jkcolor);
-					fillHands(zipperColor);
-					fillZipper(zipperColor);
+					colorName = jkcolor;
+					fillJacket(jkcolor,jcount);
+					fillHands(coloredName,jcount);
+					fillZipper(coloredName);
 					displayUpColor(jkcolorName);
 				}
 				else {
-					zipperColor = jkcolor;
-					fillHands(jkcolor);
+					coloredName = jkcolor;
+					fillHands(jkcolor,jcount);
 					fillZipper(jkcolor);
 					displayDownColor(jkcolorName);
 				}
@@ -117,64 +142,165 @@
 			ctx.scale(1.4,1.4);
 			$(".innerColor").css("max-width", "410px");
 		}
-		fillJacket("black");
-		fillHands("red");
-		fillZipper("red");
-		function fillJacket(colorName){
-			ctx.beginPath();
-			ctx.shadowBlur = 7;
-			ctx.shadowOffsetX = 10;
-			ctx.shadowOffsetY = 8;
-			ctx.shadowColor = "#a6a6a6";
-			ctx.moveTo(170,50);
-			ctx.lineTo(170,70);
-			ctx.lineTo(100,100);
-			ctx.lineTo(70,120);
-			ctx.lineTo(130,160);
-			ctx.lineTo(300,160);
-			ctx.lineTo(360,120);
-			ctx.lineTo(330,100);
-			ctx.lineTo(260,70);
-			ctx.lineTo(260,50);
-			ctx.lineTo(170,50);
-			ctx.closePath();
-			ctx.fillStyle = colorName;
-			ctx.fill();
+		fillJacket(colorName,jcount);
+		fillHands(coloredName,jcount);
+		fillZipper(coloredName);
+		function fillJacket(colorName,jcount){
+			if(jcount == 0){
+				ctx.beginPath();
+				ctx.shadowBlur = 7;
+				ctx.shadowOffsetX = 10;
+				ctx.shadowOffsetY = 8;
+				ctx.shadowColor = "#a6a6a6";
+				ctx.moveTo(170,50);
+				ctx.lineTo(170,70);
+				ctx.lineTo(100,103);
+				ctx.lineTo(70,120);
+				ctx.lineTo(130,160);
+				ctx.lineTo(300,160);
+				ctx.lineTo(360,120);
+				ctx.lineTo(330,103);
+				ctx.lineTo(260,70);
+				ctx.lineTo(260,50);
+				ctx.lineTo(170,50);
+				ctx.closePath();
+				ctx.fillStyle = colorName;
+				ctx.fill();
+			}
+			else if(jcount == 1){
+				ctx.beginPath();
+				ctx.shadowBlur = 7;
+				ctx.shadowOffsetX = 10;
+				ctx.shadowOffsetY = 8;
+				ctx.shadowColor = "#a6a6a6";
+				ctx.moveTo(170,50);
+				ctx.lineTo(170,70);
+				ctx.lineTo(100,103);
+				ctx.lineTo(70,120);
+				ctx.lineTo(30,200);
+				ctx.lineTo(25,350);
+				ctx.lineTo(75,350);
+				ctx.lineTo(100,220);
+				ctx.lineTo(130,160);
+				ctx.lineTo(300,160);
+				ctx.lineTo(330,220);
+				ctx.lineTo(355,350);
+				ctx.lineTo(405,350);
+				ctx.lineTo(400,200);
+				ctx.lineTo(360,120);
+				ctx.lineTo(330,103);
+				ctx.lineTo(260,70);
+				ctx.lineTo(260,50);
+				ctx.lineTo(170,50);
+				ctx.closePath();
+				ctx.fillStyle = colorName;
+				ctx.fill();
+			}
+			else if(jcount ==2){
+				ctx.beginPath();
+				<!-- ctx.shadowBlur = 7; -->
+				<!-- ctx.shadowOffsetX = 10; -->
+				<!-- ctx.shadowOffsetY = 8; -->
+				<!-- ctx.shadowColor = "#a6a6a6"; -->
+				ctx.moveTo(170,50);
+				ctx.lineTo(170,70);
+				ctx.lineTo(120,93);
+				ctx.lineTo(150,160);
+				ctx.lineTo(150,350);
+				ctx.lineTo(280,350);
+				ctx.lineTo(280,160);
+				ctx.lineTo(310,93);
+				ctx.lineTo(260,70);
+				ctx.lineTo(260,50);
+				ctx.lineTo(170,50);
+				ctx.closePath();
+				ctx.fillStyle = colorName;
+				ctx.fill();
+			}
 		}
-		function fillHands(coloredName){
-			ctx.beginPath(); 
-			ctx.moveTo(70,120);
-			ctx.lineTo(30,200);
-			ctx.lineTo(25,350);
-			ctx.lineTo(75,350);
-			ctx.lineTo(100,220);
-			ctx.lineTo(130,160);
-			
-			ctx.lineTo(130,160);
-			ctx.lineTo(130,350);
-			ctx.lineTo(300,350);
-			ctx.lineTo(300,160);
-			
-			ctx.lineTo(330,220);
-			ctx.lineTo(355,350);
-			ctx.lineTo(405,350);
-			ctx.lineTo(400,200);
-			ctx.lineTo(360,120);
-            ctx.lineTo(300,160);
-            ctx.lineTo(130,160);
-			ctx.lineTo(70,120);
-			
-			ctx.closePath();
-			ctx.fillStyle = coloredName;
-			ctx.fill();
+		function fillHands(coloredName,jcount){
+			if(jcount == 0){
+				ctx.beginPath(); 
+				ctx.moveTo(70,120);
+				ctx.lineTo(30,200);
+				ctx.lineTo(25,350);
+				ctx.lineTo(75,350);
+				ctx.lineTo(100,220);
+				ctx.lineTo(130,160);
+				
+				ctx.lineTo(130,160);
+				ctx.lineTo(130,350);
+				ctx.lineTo(300,350);
+				ctx.lineTo(300,160);
+				
+				ctx.lineTo(330,220);
+				ctx.lineTo(355,350);
+				ctx.lineTo(405,350);
+				ctx.lineTo(400,200);
+				ctx.lineTo(360,120);
+				ctx.lineTo(300,160);
+				ctx.lineTo(130,160);
+				ctx.lineTo(70,120);
+				
+				ctx.closePath();
+				ctx.fillStyle = coloredName;
+				ctx.fill();
+			}
+			else if(jcount == 1){
+				ctx.beginPath(); 
+				ctx.lineTo(130,160);
+				ctx.lineTo(130,350);
+				ctx.lineTo(300,350);
+				ctx.lineTo(300,160);
+				ctx.lineTo(130,160);          
+				ctx.closePath();
+				ctx.fillStyle = coloredName;
+				ctx.fill();
+			}
+			else if(jcount == 2){
+				ctx.beginPath();
+				ctx.moveTo(120,93);
+				ctx.lineTo(70,120);
+				ctx.lineTo(30,200);
+				ctx.lineTo(25,350);
+				ctx.lineTo(75,350);
+				ctx.lineTo(100,220);
+				ctx.lineTo(130,160);
+				
+				ctx.lineTo(130,160);
+				ctx.lineTo(130,350);
+				ctx.lineTo(150,350);
+				ctx.lineTo(150,160);
+				ctx.lineTo(120,93);
+				ctx.closePath();
+				ctx.fillStyle = coloredName;
+				ctx.fill();
+				
+				ctx.beginPath();
+				ctx.moveTo(310,93);
+				ctx.lineTo(280,160);
+				ctx.lineTo(280,350);
+				ctx.lineTo(300,350);
+				ctx.lineTo(300,160);
+				ctx.lineTo(330,220);
+				ctx.lineTo(355,350);
+				ctx.lineTo(405,350);
+				ctx.lineTo(400,200);
+				ctx.lineTo(360,120);
+				ctx.lineTo(310,93);
+				ctx.closePath();
+				
+				ctx.fillStyle = coloredName;
+				ctx.fill();
+			}
 		}
-		function fillZipper(colorZipper){
+		function fillZipper(coloredName){
 			ctx.beginPath();
 			ctx.shadowColor = "transparent";
 			ctx.moveTo(215,50);
 			ctx.lineTo(215,350);
 			ctx.lineWidth = 5;
-			ctx.strokeStyle = colorZipper;
+			ctx.strokeStyle = coloredName;
 			ctx.stroke();
 			ctx.closePath();
 		}
