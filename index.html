@@ -30,19 +30,19 @@
 		var colorName = "black";
 		var coloredName = "red";
 		var jcount = 0;
-		$(".rightButton").on("click touchstart", function(){
+		$(".rightButton").click(function(){
 			jcount++;
-			if(jcount == 3){
+			if(jcount == 5){
 				jcount = 0;
 			}
 			fillJacket(colorName,jcount);
 			fillHands(coloredName,jcount);
 			fillZipper(coloredName);
 		});
-		$(".leftButton").on("click touchstart", function(){
+		$(".leftButton").click(function(){
 			jcount--;
 			if(jcount == -1){
-				jcount = 2;
+				jcount = 4;
 			}
 			fillJacket(colorName,jcount);
 			fillHands(coloredName,jcount);
@@ -65,7 +65,7 @@
 			b[1].children[i].style.backgroundColor = arrayOfColor[i];
 			b[1].children[i].title = arrayOfColor[i];
 		}
-		$('.innerColor > div').on("click touchstart", function(){
+		$('.innerColor > div').click(function(){
 			var jkcolor = this.style.backgroundColor;
 			var jkcolorName = this.title;
 			$(this).parent().children().css("border","1px solid transparent");
@@ -198,18 +198,86 @@
 			}
 			else if(jcount ==2){
 				ctx.beginPath();
-				<!-- ctx.shadowBlur = 7; -->
-				<!-- ctx.shadowOffsetX = 10; -->
-				<!-- ctx.shadowOffsetY = 8; -->
-				<!-- ctx.shadowColor = "#a6a6a6"; -->
+				ctx.moveTo(120,93);
+				ctx.lineTo(70,120);
+				ctx.lineTo(30,200);
+				ctx.lineTo(25,350);
+				ctx.lineTo(75,350);
+				ctx.lineTo(100,220);
+				ctx.lineTo(130,160);
+				
+				ctx.lineTo(130,160);
+				ctx.lineTo(130,350);
+				ctx.lineTo(150,350);
+				ctx.lineTo(150,160);
+				ctx.lineTo(120,93);
+				ctx.closePath();
+				ctx.fillStyle = colorName;
+				ctx.fill();
+				
+				ctx.beginPath();
+				ctx.moveTo(310,93);
+				ctx.lineTo(280,160);
+				ctx.lineTo(280,350);
+				ctx.lineTo(300,350);
+				ctx.lineTo(300,160);
+				ctx.lineTo(330,220);
+				ctx.lineTo(355,350);
+				ctx.lineTo(405,350);
+				ctx.lineTo(400,200);
+				ctx.lineTo(360,120);
+				ctx.lineTo(310,93);
+				ctx.closePath();
+				
+				ctx.fillStyle = colorName;
+				ctx.fill();
+			}
+			else if(jcount == 3){
+				ctx.beginPath();
 				ctx.moveTo(170,50);
 				ctx.lineTo(170,70);
-				ctx.lineTo(120,93);
-				ctx.lineTo(150,160);
-				ctx.lineTo(150,350);
-				ctx.lineTo(280,350);
-				ctx.lineTo(280,160);
-				ctx.lineTo(310,93);
+				ctx.lineTo(100,103);
+				ctx.lineTo(70,120);
+				ctx.lineTo(30,200);
+				ctx.lineTo(25,350);
+				ctx.lineTo(60,350);
+				ctx.lineTo(80,220);
+				ctx.lineTo(120,130);
+                ctx.lineTo(215,160);
+				ctx.lineTo(310,130);
+				ctx.lineTo(350,220);
+				ctx.lineTo(370,350);
+				ctx.lineTo(405,350);
+				ctx.lineTo(400,200);
+				ctx.lineTo(360,120);
+				ctx.lineTo(330,103);
+				ctx.lineTo(260,70);
+				ctx.lineTo(260,50);
+				ctx.lineTo(170,50);
+				ctx.closePath();
+				ctx.fillStyle = colorName;
+				ctx.fill();
+			}
+			else if(jcount == 4){
+				ctx.beginPath();
+				ctx.moveTo(170,50);
+				ctx.lineTo(170,70);
+				ctx.lineTo(100,103);
+				ctx.lineTo(70,120);
+				ctx.lineTo(30,200);
+				ctx.lineTo(25,350);
+				ctx.lineTo(75,350);
+				ctx.lineTo(100,220);
+				ctx.lineTo(130,160);
+                ctx.lineTo(170,100);
+                ctx.lineTo(260,100);
+				ctx.lineTo(300,160);
+				ctx.lineTo(330,220);
+				ctx.lineTo(355,350);
+				ctx.lineTo(405,350);
+				ctx.lineTo(400,200);
+				ctx.lineTo(360,120);
+				ctx.lineTo(330,103);
 				ctx.lineTo(260,70);
 				ctx.lineTo(260,50);
 				ctx.lineTo(170,50);
@@ -259,37 +327,54 @@
 			}
 			else if(jcount == 2){
 				ctx.beginPath();
-				ctx.moveTo(120,93);
-				ctx.lineTo(70,120);
-				ctx.lineTo(30,200);
-				ctx.lineTo(25,350);
-				ctx.lineTo(75,350);
-				ctx.lineTo(100,220);
-				ctx.lineTo(130,160);
-				
-				ctx.lineTo(130,160);
-				ctx.lineTo(130,350);
-				ctx.lineTo(150,350);
-				ctx.lineTo(150,160);
+				ctx.moveTo(170,50);
+				ctx.lineTo(170,70);
 				ctx.lineTo(120,93);
+				ctx.lineTo(150,160);
+				ctx.lineTo(150,350);
+				ctx.lineTo(280,350);
+				ctx.lineTo(280,160);
+				ctx.lineTo(310,93);
+				ctx.lineTo(260,70);
+				ctx.lineTo(260,50);
+				ctx.lineTo(170,50);
 				ctx.closePath();
 				ctx.fillStyle = coloredName;
 				ctx.fill();
-				
+			}
+			else if(jcount == 3){
 				ctx.beginPath();
-				ctx.moveTo(310,93);
-				ctx.lineTo(280,160);
-				ctx.lineTo(280,350);
+            	ctx.moveTo(120,130);
+                ctx.lineTo(80,220);
+                ctx.lineTo(60,350);
+                ctx.lineTo(75,350);
+                ctx.lineTo(100,220);
+				ctx.lineTo(130,160);
+				ctx.lineTo(130,350);
 				ctx.lineTo(300,350);
 				ctx.lineTo(300,160);
 				ctx.lineTo(330,220);
-				ctx.lineTo(355,350);
-				ctx.lineTo(405,350);
-				ctx.lineTo(400,200);
-				ctx.lineTo(360,120);
-				ctx.lineTo(310,93);
+                ctx.lineTo(355,350);
+                ctx.lineTo(370,350);
+                ctx.lineTo(350,220);
+                ctx.lineTo(310,130);
+                ctx.lineTo(300,130);
+                ctx.lineTo(215,160);
+                ctx.lineTo(130,130);
 				ctx.closePath();
-				
+				ctx.fillStyle = coloredName;
+				ctx.fill();
+			}
+			else if(jcount == 4){
+				ctx.beginPath();
+            	ctx.moveTo(170,100);
+				ctx.lineTo(130,160);
+				ctx.lineTo(130,350);
+				ctx.lineTo(300,350);
+				ctx.lineTo(300,160);
+                ctx.lineTo(260,100);
+				ctx.lineTo(170,100);          
+				ctx.closePath();
 				ctx.fillStyle = coloredName;
 				ctx.fill();
 			}
