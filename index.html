@@ -32,7 +32,7 @@
 		var jcount = 0;
 		$(".rightButton").click(function(){
 			jcount++;
-			if(jcount == 4){
+			if(jcount == 3){
 				jcount = 0;
 			}
 			fillJacket(colorName,jcount);
@@ -42,14 +42,14 @@
 		$(".leftButton").click(function(){
 			jcount--;
 			if(jcount == -1){
-				jcount = 3;
+				jcount = 2;
 			}
 			fillJacket(colorName,jcount);
 			fillHands(coloredName,jcount);
 			fillZipper(coloredName);
 		});
 		var arrayOfColor = [
-			"#000000", "#00004d", "#3333ff","#336699","#006600",
+			"#000000", "#00004d", "#3333ff", "#9966ff","#006600",
 			"#006622", "#aaaa55", "#e6ffe6", "#e60000", "#990073"
 		];
 		<!-- var arrayOfColor = [ -->
@@ -263,35 +263,35 @@
 				ctx.fillStyle = colorName;
 				ctx.fill();
 			}
-			else if(jcount == 3){
-				ctx.beginPath();
-				ctx.lineJoin="round";
-				ctx.moveTo(170,50);
-				ctx.lineTo(170,70);
-				ctx.lineTo(100,103);
-				ctx.lineTo(70,120);
-				ctx.lineTo(30,200);
-				ctx.lineTo(25,350);
-				ctx.lineTo(75,350);
-				ctx.lineTo(100,220);
-				ctx.lineTo(130,160);
-                ctx.quadraticCurveTo(165, 130, 170, 85);
-                ctx.lineTo(215,100);
-                ctx.lineTo(260,85);
-                ctx.quadraticCurveTo(265, 130, 300, 160);
-				ctx.lineTo(330,220);
-				ctx.lineTo(355,350);
-				ctx.lineTo(405,350);
-				ctx.lineTo(400,200);
-				ctx.lineTo(360,120);
-				ctx.lineTo(330,103);
-				ctx.lineTo(260,70);
-				ctx.lineTo(260,50);
-				ctx.lineTo(170,50);
-				ctx.closePath();
-				ctx.fillStyle = colorName;
-				ctx.fill();
-			}
+			<!-- else if(jcount == 3){ -->
+				<!-- ctx.beginPath(); -->
+				<!-- ctx.lineJoin="round"; -->
+				<!-- ctx.moveTo(170,50); -->
+				<!-- ctx.lineTo(170,70); -->
+				<!-- ctx.lineTo(100,103); -->
+				<!-- ctx.lineTo(70,120); -->
+				<!-- ctx.lineTo(30,200); -->
+				<!-- ctx.lineTo(25,350); -->
+				<!-- ctx.lineTo(75,350); -->
+				<!-- ctx.lineTo(100,220); -->
+				<!-- ctx.lineTo(130,160); -->
+                <!-- ctx.quadraticCurveTo(165, 130, 170, 85); -->
+                <!-- ctx.lineTo(215,100); -->
+                <!-- ctx.lineTo(260,85); -->
+                <!-- ctx.quadraticCurveTo(265, 130, 300, 160); -->
+				<!-- ctx.lineTo(330,220); -->
+				<!-- ctx.lineTo(355,350); -->
+				<!-- ctx.lineTo(405,350); -->
+				<!-- ctx.lineTo(400,200); -->
+				<!-- ctx.lineTo(360,120); -->
+				<!-- ctx.lineTo(330,103); -->
+				<!-- ctx.lineTo(260,70); -->
+				<!-- ctx.lineTo(260,50); -->
+				<!-- ctx.lineTo(170,50); -->
+				<!-- ctx.closePath(); -->
+				<!-- ctx.fillStyle = colorName; -->
+				<!-- ctx.fill(); -->
+			<!-- } -->
 		}
 		function fillHands(coloredName,jcount){
 			if(jcount == 0){
@@ -372,26 +372,26 @@
 				ctx.fillStyle = coloredName;
 				ctx.fill();
 			}
-			else if(jcount == 3){
-				ctx.beginPath();
-            	ctx.moveTo(170,85);
-				ctx.quadraticCurveTo(165, 130, 130, 160);
-            	ctx.lineTo(130,350);
-				ctx.lineTo(300,350);
-				ctx.lineTo(300,160);
-                ctx.quadraticCurveTo(265, 130, 260, 85);
-                ctx.quadraticCurveTo(215, 100, 170, 85);
-                ctx.closePath();
-				ctx.fillStyle = coloredName;
-				ctx.fill();
-			}
+			<!-- else if(jcount == 3){ -->
+				<!-- ctx.beginPath(); -->
+            	<!-- ctx.moveTo(170,85); -->
+				<!-- ctx.quadraticCurveTo(165, 130, 130, 160); -->
+            	<!-- ctx.lineTo(130,350); -->
+				<!-- ctx.lineTo(300,350); -->
+				<!-- ctx.lineTo(300,160); -->
+                <!-- ctx.quadraticCurveTo(265, 130, 260, 85); -->
+                <!-- ctx.quadraticCurveTo(215, 100, 170, 85); -->
+                <!-- ctx.closePath(); -->
+				<!-- ctx.fillStyle = coloredName; -->
+				<!-- ctx.fill(); -->
+			<!-- } -->
 		}
 		function fillZipper(coloredName){
 			ctx.beginPath();
 			ctx.shadowColor = "transparent";
 			ctx.moveTo(215,50);
 			ctx.lineTo(215,350);
-			ctx.lineWidth = 5;
+			ctx.lineWidth = 3;
 			ctx.strokeStyle = coloredName;
 			ctx.stroke();
 			ctx.closePath();
