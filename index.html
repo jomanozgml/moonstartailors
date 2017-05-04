@@ -48,18 +48,15 @@
 			fillHands(coloredName,jcount);
 			fillZipper(coloredName);
 		});
+		
 		var arrayOfColor = [
-			"#000000", "#00004d", "#3333ff", "#9966ff","#006600",
-			"#006622", "#aaaa55", "#e6ffe6", "#e60000", "#990073"
+				"Black", "White", "Gray", "LightGray", "Aquamarine", "Blue", "BlueViolet", "DarkBlue", "LightBlue", "LightSteelBlue", "Navy", "RoyalBlue", "SkyBlue", "Teal", "Turquoise",
+				"Chartreuse", "DarkGreen", "DarkOliveGreen", "Green", "LightGreen", "LightSeaGreen", "Lime", "LimeGreen", "Olive",  "SeaGreen", "SpringGreen", "DarkKhaki ", "Khaki",
+				"DarkViolet", "Indigo", "MediumPurple", "Orchid", "PaleVioletRed ", "Purple", "Plum",
+				"Brown", "Chocolate", "SaddleBrown", "Sienna", "Crimson", "DarkOrange", "DarkRed", "DeepPink", "HotPink", "IndianRed", "LightPink", "MediumVioletRed", "Red", "Salmon", "Tomato",
+				"DarkGoldenRod", "Gold", "GoldenRod", "GreenYellow", "Yellow", "YellowGreen",
+				"BurlyWood", "Wheat", "Silver", "Tan"
 		];
-		<!-- var arrayOfColor = [ -->
-				<!-- "Black", "White", "Gray", "LightGray", "Aquamarine", "Blue", "BlueViolet", "DarkBlue", "LightBlue", "LightSteelBlue", "Navy", "RoyalBlue", "SkyBlue", "Teal", "Turquoise", -->
-				<!-- "Chartreuse", "DarkGreen", "DarkOliveGreen", "Green", "LightGreen", "LightSeaGreen", "Lime", "LimeGreen", "Olive",  "SeaGreen", "SpringGreen", "DarkKhaki ", "Khaki", -->
-				<!-- "DarkViolet", "Indigo", "MediumPurple", "Orchid", "PaleVioletRed ", "Purple", "Plum", -->
-				<!-- "Brown", "Chocolate", "SaddleBrown", "Sienna", "Crimson", "DarkOrange", "DarkRed", "DeepPink", "HotPink", "IndianRed", "LightPink", "MediumVioletRed", "Red", "Salmon", "Tomato", -->
-				<!-- "DarkGoldenRod", "Gold", "GoldenRod", "GreenYellow", "Yellow", "YellowGreen", -->
-				<!-- "BurlyWood", "Wheat", "Silver", "Tan" -->
-		<!-- ]; -->
 		var arrLength = arrayOfColor.length;
 		var b = document.getElementsByClassName("innerColor");
 		for (var i=0; i<arrLength; i++) {
